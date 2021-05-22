@@ -50,10 +50,11 @@ class Solution:
                     print("flag="+str(flag))
                     print("re=" + str(re))
                     flag = flag - re
+                    re = 0
 
             li.append(flag)
             flag = 1
-            re = 0
+
 
         max = 0
         for i in range(len(li)-1):
