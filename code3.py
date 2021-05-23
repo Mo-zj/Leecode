@@ -28,7 +28,8 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
 
-        flag = 1
+        flag = 0
+        # flag = 1
         re = 0
         li = []
 
@@ -42,17 +43,25 @@ class Solution:
             j = i+1
             for k in range(j, len(s)):
                 if s[i] == s[k]:
+                    flag = k - i + 1
                     break
                 else:
-                    flag = flag +1
+                    flag = k - i
+                    # flag += 1
+
                     if s[k] in s[i:k]:
                         re += 1
-                    print("flag="+str(flag))
+                    print("flag=" + str(flag))
                     print("re=" + str(re))
                     flag = flag - re
 
+
+
             li.append(flag)
-            flag = 1
+            for i in range(len(li)):
+                print("li"+str(i)+"="+str(li[i]))
+            # flag = 0
+            flag = 0
             re = 0
 
         max = 0
@@ -71,7 +80,7 @@ class Solution:
 if __name__ == '__main__':
 
     so =  Solution()
-    s ="asljlj"
+    s ="pwwkew"
     result = so.lengthOfLongestSubstring(s)
     print(result)
 
